@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RUP AI - Blind UI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <main>
+    <video id="webcam" autoplay playsinline></video>
+    <button class="capture-button" id="captureBtn" type="button">
+      <div class="logo">
+        <img src="./assets/images/logo-onlyshape.png" alt="logo">
+      </div>
+      <span class="icon">
+        <i class="fa-solid fa-camera"></i>
+      </span>
+    </button>
+    <canvas id="canvas" style="display:none;"></canvas>
+  </main>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
