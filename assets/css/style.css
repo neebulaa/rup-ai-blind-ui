@@ -7,6 +7,13 @@
 
 :root {
     --primary: #5ec57e;
+        --dark: #111315;
+    --bright-dark: #2d3031;
+    --light: #FBFBFB;
+    --dim-light: #eeeeee;
+    --primary: #25b09b;
+    --primary-light: #6be7b3;
+    --gray: #989898;
 }
 
 body {
@@ -59,16 +66,45 @@ nav {
 }
 
 /* Webcam preview */
-#webcam {
+#web-controls {
     position: fixed;
     bottom: 10px;
     left: 10px;
-    width: 20vmax;
+}
+
+#webcam {
+    width: 25vmax;
+    max-width: 300px;
     aspect-ratio: 16/9;
     border-radius: 10px;
     object-fit: cover;
     border: 2px solid white;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+#switch-camera {
+    border: none;
+    outline: none;
+    width: 80px;
+    font-size: 1.5rem;
+    height: 80px;
+    border-radius: 80px;
+    background: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark); 
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#switch-camera:hover {
+    filter: brightness(.6);
+}
+
+#switch-camera:active {
+    scale: .9;
 }
 
 .logo {
@@ -88,7 +124,6 @@ nav {
     height: 100%;
     object-fit: contain;
 }
-
 
 /* toast start */
 h1 { margin: 0 0 18px; font-size: 20px; }

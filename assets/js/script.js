@@ -2,14 +2,16 @@ const API_URL = "https://hendlyhugging-rup-ai.hf.space/predict";
 const video = document.getElementById("webcam");
 const canvas = document.getElementById("canvas");
 const captureBtn = document.getElementById("captureBtn");
+const switchCamera = document.getElementById("switch-camera");
 let predicting = false;
 let currentSpeechText = ""; // <-- Track current speech text
+let facingModeEnv = true;
 
 // Start webcam
-async function startWebcam() {
+async function startWebcam(facingMode = 'environment') {
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: {
-            facingMode: 'environment'
+            facingMode
         } });
         video.srcObject = stream;
     } catch (err) {
@@ -97,8 +99,14 @@ async function captureAndPredict() {
     }, "image/jpeg");
 }
 
+switchCamera.addEventListener('click', function(){
+    facingModeEnv = !facingModeEnv;
+    startWebcam(facingModeEnv ? 'environment' : 'user');
+});
+
 window.addEventListener('click', function(e){
-    if (!predicting) {
+    console.log(e.target);
+    if (!predicting && e.target.id != 'switch-camera') {
         if (
             speechSynthesis.speaking &&
             currentSpeechText === "Tekan layar anda untuk mengambil gambar uang"
