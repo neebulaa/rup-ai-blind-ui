@@ -68,12 +68,14 @@ async function captureAndPredict() {
 
             if (result.confidence <= 70) {
                 setTimeout(async () => {
+                    toast.warn(`Gagal!`, `Arahkan ke mata uang`);
                     await speak(`Tolong arahkan kamera ke mata uang`);
                     predicting = false;
                     speak("Tekan layar anda untuk mengambil gambar uang");
                 }, 500);
             } else {
                 setTimeout(async () => {
+                    toast.info(`${result.class.charAt(0).toUpperCase() + result.class.slice(1)}!`, `Prediksi dengan Presentase ${result.confidence}%`);
                     await speak(`Ini adalah ${result.class}`);
                     predicting = false;
                     speak("Tekan layar anda untuk mengambil gambar uang");
@@ -83,6 +85,7 @@ async function captureAndPredict() {
         } catch (err) {
             console.error("Error predicting:", err);
             setTimeout(async () => {
+                toast.error(`Gagal!`, `Kesalahan Server`);
                 await speak("Terjadi kesalahan saat memproses gambar, server tidak terbuka");
                 predicting = false;
                 speak("Tekan layar anda untuk mengambil gambar uang");
