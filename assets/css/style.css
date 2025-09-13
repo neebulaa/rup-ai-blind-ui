@@ -184,7 +184,7 @@ p { margin: 0 0 20px; color: #475569; }
     cursor: pointer;
     padding: 6px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 20px;
     color: #94a3b8;
 }
 .toast .close:focus { outline: 2px solid rgba(99,102,241,0.14); }
@@ -203,8 +203,8 @@ p { margin: 0 0 20px; color: #475569; }
         left: 50%;
         right: auto;
         transform: translateX(-50%);
-        top: auto;
-        bottom: 18px;
+        top: 18px;
+        bottom: auto;
         align-items: center;
     }
 
