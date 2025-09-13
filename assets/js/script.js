@@ -8,12 +8,15 @@ let currentSpeechText = ""; // <-- Track current speech text
 // Start webcam
 async function startWebcam() {
     try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ video: {
+            facingMode: 'environment'
+        } });
         video.srcObject = stream;
     } catch (err) {
         console.error("Error accessing webcam:", err);
     }
 }
+
 startWebcam();
 
 // Speak function (Indonesia)
