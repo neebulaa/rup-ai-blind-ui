@@ -6,6 +6,7 @@ const switchCamera = document.getElementById("switch-camera");
 let predicting = false;
 let currentSpeechText = ""; // <-- Track current speech text
 let facingModeEnv = true;
+const predictionThreshold = 55; // 55%
 
 // Start webcam
 async function startWebcam(facingMode = 'environment') {
@@ -71,7 +72,7 @@ async function captureAndPredict() {
             const result = await response.json();
             console.log("Prediction:", result);
 
-            if (result.confidence <= 70) {
+            if (result.confidence <= predictionThreshold) {
                 setTimeout(async () => {
                     toast.warn(`Gagal!`, `Arahkan ke mata uang`);
                     await speak(`Tolong arahkan kamera ke mata uang`);
