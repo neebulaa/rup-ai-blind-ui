@@ -6,7 +6,7 @@ const switchCamera = document.getElementById("switch-camera");
 let predicting = false;
 let currentSpeechText = ""; // <-- Track current speech text
 let facingModeEnv = true;
-const predictionThreshold = 55; // 55%
+const predictionThreshold = 50; // 55%
 
 // Start webcam
 async function startWebcam(facingMode = 'environment') {
